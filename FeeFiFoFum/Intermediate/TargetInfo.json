@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "FeeFiFoFum",
+			"Path": "C:\\Users\\aaron\\Documents\\Unreal Projects\\FeeFiFoFum\\FeeFiFoFum\\Source\\FeeFiFoFum.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "FeeFiFoFumEditor",
+			"Path": "C:\\Users\\aaron\\Documents\\Unreal Projects\\FeeFiFoFum\\FeeFiFoFum\\Source\\FeeFiFoFumEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

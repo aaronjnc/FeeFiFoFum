@@ -1,0 +1,19 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\intermediate\\build\\win64\\unrealeditor\\inc\\feefifofum\\feefifofumgamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\intermediate\\build\\win64\\feefifofumeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\intermediate\\build\\win64\\unrealeditor\\development\\feefifofum\\definitions.feefifofum.h",
+            "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\source\\feefifofum\\feefifofumgamemode.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\serverstatreplicator.generated.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamemodebase.generated.h",
+            "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\intermediate\\build\\win64\\unrealeditor\\inc\\feefifofum\\feefifofumgamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

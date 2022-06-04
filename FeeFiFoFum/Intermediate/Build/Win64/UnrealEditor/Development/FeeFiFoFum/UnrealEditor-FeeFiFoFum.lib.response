@@ -1,0 +1,23 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-FeeFiFoFum.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\FeeFiFoFumEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFum.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFumCharacter.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFumGameMode.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFumProjectile.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\TP_PickUpComponent.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\TP_WeaponComponent.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFum.init.gen.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFumCharacter.gen.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFumGameMode.gen.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\FeeFiFoFumProjectile.gen.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\TP_PickUpComponent.gen.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\TP_WeaponComponent.gen.cpp.obj"
+"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\Default.rc2.res"
+/OUT:"C:\Users\aaron\Documents\Unreal Projects\FeeFiFoFum\FeeFiFoFum\Intermediate\Build\Win64\UnrealEditor\Development\FeeFiFoFum\UnrealEditor-FeeFiFoFum.lib"

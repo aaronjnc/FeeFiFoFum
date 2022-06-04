@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\intermediate\\build\\win64\\unrealeditor\\inc\\feefifofum\\feefifofum.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\intermediate\\build\\win64\\feefifofumeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\aaron\\documents\\unreal projects\\feefifofum\\feefifofum\\intermediate\\build\\win64\\unrealeditor\\development\\feefifofum\\definitions.feefifofum.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
