@@ -18,8 +18,6 @@ UGiantPatrol::UGiantPatrol()
 void UGiantPatrol::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
 	
 }
 
@@ -32,3 +30,7 @@ void UGiantPatrol::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 	// ...
 }
 
+void UGiantPatrol::DetermineNextPoint()
+{
+		
+}
