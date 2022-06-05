@@ -25,10 +25,21 @@ void APatrolPoint::Tick(float DeltaTime)
 
 }
 
-float APatrolPoint::CalculateWeight(AActor* giant)
+void APatrolPoint::VisitPoint()
 {
-	float distance = GetDistanceTo(giant);
-	LastVisit += 1;
-	return 0;
+	LastVisit = 0;
+}
+
+float APatrolPoint::CalculateWeight(float MaxDistance)
+{
+	LastVisit++;
+	float DistancePercent = distance / MaxDistance;
+	return DistancePercent * LastVisit;
+}
+
+float APatrolPoint::GetDistance(AActor* giant)
+{
+	distance = GetDistanceTo(giant);
+	return distance;
 }
 

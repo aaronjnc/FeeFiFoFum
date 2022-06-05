@@ -2,6 +2,7 @@
 
 
 #include "GiantPatrol.h"
+#include "Math/UnrealMathUtility.h"
 
 // Sets default values for this component's properties
 UGiantPatrol::UGiantPatrol()
@@ -30,7 +31,28 @@ void UGiantPatrol::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 	// ...
 }
 
-void UGiantPatrol::DetermineNextPoint()
+APatrolPoint* UGiantPatrol::DetermineNextPoint()
 {
-		
+	if (CurrentPoint != nullptr)
+		CurrentPoint->VisitPoint();
+	float MaxDist = 0;
+	for(APatrolPoint* p : PatrolPoints)
+	{
+		float distance = p->GetDistance(GetOwner());
+		if (distance > MaxDist)
+			MaxDist = distance;
+	}
+	APatrolPoint* GoalPoint = nullptr;
+	float HighestVal = 0;
+	for(APatrolPoint* p : PatrolPoints)
+	{
+		float Rand = FMath::RandRange(0.0, 1.0);
+		float Weight = p->CalculateWeight(MaxDist) * Rand;
+		if (Weight > HighestVal)
+		{
+			HighestVal = Weight;
+			GoalPoint = p;
+		}
+	}
+	return GoalPoint;
 }
