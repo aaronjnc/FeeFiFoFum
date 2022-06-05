@@ -28,7 +28,10 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	TArray<APatrolPoint*> PatrolPoints;
 
+	UFUNCTION(BlueprintCallable)
+	APatrolPoint* DetermineNextPoint();
+
 private:
 
-	void DetermineNextPoint();
+	APatrolPoint* CurrentPoint;
 };
