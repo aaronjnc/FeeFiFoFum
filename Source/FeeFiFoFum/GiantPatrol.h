@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "PatrolPoint.h"
 #include "GiantPatrol.generated.h"
 
 
@@ -24,7 +25,10 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UPROPERTY(BlueprintReadWrite)
+	TArray<APatrolPoint*> PatrolPoints;
+
 private:
 
-	AActor* GoalActor;
+	void DetermineNextPoint();
 };
