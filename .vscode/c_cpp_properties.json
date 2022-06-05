@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "FeeFiFoFumEditor Editor Win64 Development (FeeFiFoFum)",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "C:\\Users\\aaron\\Documents\\Unreal Projects\\FeeFiFoFum\\.vscode\\compileCommands_FeeFiFoFum.json",
+            "cStandard": "c17",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "Win32",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "C:\\Users\\aaron\\Documents\\Unreal Projects\\FeeFiFoFum\\.vscode\\compileCommands_Default.json",
+            "cStandard": "c17",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
