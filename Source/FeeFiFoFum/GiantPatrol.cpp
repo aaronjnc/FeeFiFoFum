@@ -38,23 +38,22 @@ APatrolPoint* UGiantPatrol::DetermineNextPoint()
 	float MaxDist = 0;
 	for(APatrolPoint* p : PatrolPoints)
 	{
-		float distance = p->GetDistance(GetOwner());
-		if (distance > MaxDist)
-			MaxDist = distance;
+		const float Distance = p->GetDistance(GetOwner());
+		if (Distance > MaxDist)
+			MaxDist = Distance;
 	}
 	APatrolPoint* GoalPoint = nullptr;
 	float HighestVal = 0;
 	for(APatrolPoint* p : PatrolPoints)
 	{
-		float Rand = FMath::RandRange(0.0, 1.0);
-		float Weight = p->CalculateWeight(MaxDist) * Rand;
-		UE_LOG(LogTemp, Display, TEXT("%s %lf %lf"), *(p->GetActorNameOrLabel()), Weight, Rand);
+		const float Rand = FMath::RandRange(0.0, 1.0);
+		const float Weight = p->CalculateWeight(MaxDist) * Rand;
 		if (Weight > HighestVal)
 		{
 			HighestVal = Weight;
 			GoalPoint = p;
 		}
 	}
-	UE_LOG(LogTemp, Display, TEXT("%s"), *(GoalPoint->GetActorNameOrLabel()));
+	CurrentPoint = GoalPoint;
 	return GoalPoint;
 }
