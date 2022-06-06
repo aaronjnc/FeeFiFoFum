@@ -23,15 +23,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	float CalculateWeight(float distance);
+	float CalculateWeight(const float MaxDistance);
 
-	float GetDistance(AActor* giant);
+	float GetDistance(const AActor* Giant);
 
 	void VisitPoint();
 
 private:
 
-	float distance = 0;
-	float weight = 1;
+	float Distance = 0;
 	int LastVisit = 0;
 };

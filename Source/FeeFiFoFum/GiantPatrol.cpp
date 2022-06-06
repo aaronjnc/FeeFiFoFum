@@ -48,11 +48,13 @@ APatrolPoint* UGiantPatrol::DetermineNextPoint()
 	{
 		float Rand = FMath::RandRange(0.0, 1.0);
 		float Weight = p->CalculateWeight(MaxDist) * Rand;
+		UE_LOG(LogTemp, Display, TEXT("%s %lf %lf"), *(p->GetActorNameOrLabel()), Weight, Rand);
 		if (Weight > HighestVal)
 		{
 			HighestVal = Weight;
 			GoalPoint = p;
 		}
 	}
+	UE_LOG(LogTemp, Display, TEXT("%s"), *(GoalPoint->GetActorNameOrLabel()));
 	return GoalPoint;
 }
