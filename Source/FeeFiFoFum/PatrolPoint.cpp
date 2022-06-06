@@ -42,4 +42,3 @@ float APatrolPoint::GetDistance(const AActor* Giant)
 	Distance = GetDistanceTo(Giant);
 	return Distance;
 }
-

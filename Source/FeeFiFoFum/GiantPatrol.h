@@ -31,7 +31,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	APatrolPoint* DetermineNextPoint();
 
+	UPROPERTY(BlueprintReadWrite)
+	bool Spotted = false;
+
 private:
 
 	APatrolPoint* CurrentPoint;
+
+	float TimeSinceSpot;
 };
