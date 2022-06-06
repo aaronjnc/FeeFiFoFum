@@ -30,16 +30,16 @@ void APatrolPoint::VisitPoint()
 	LastVisit = 0;
 }
 
-float APatrolPoint::CalculateWeight(float MaxDistance)
+float APatrolPoint::CalculateWeight(const float MaxDistance)
 {
 	LastVisit++;
-	float DistancePercent = distance / MaxDistance;
+	const float DistancePercent = 1 - (Distance / MaxDistance);
 	return DistancePercent * LastVisit;
 }
 
-float APatrolPoint::GetDistance(AActor* giant)
+float APatrolPoint::GetDistance(const AActor* Giant)
 {
-	distance = GetDistanceTo(giant);
-	return distance;
+	Distance = GetDistanceTo(Giant);
+	return Distance;
 }
 
