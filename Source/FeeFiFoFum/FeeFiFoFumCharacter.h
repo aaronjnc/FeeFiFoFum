@@ -22,10 +22,6 @@ class AFeeFiFoFumCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-	/** Pawn mesh: 1st person view (arms; seen only by self) */
-	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
-	USkeletalMeshComponent* Mesh1P;
-
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
@@ -37,6 +33,11 @@ protected:
 	virtual void BeginPlay();
 
 public:
+	/** Pawn mesh: 1st person view (arms; seen only by self) */
+	// Moving to public to see if the blueprint can see this
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = Mesh)
+		USkeletalMeshComponent* Mesh1P;
+
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float TurnRateGamepad;
@@ -44,6 +45,10 @@ public:
 	/** Delegate to whom anyone can subscribe to receive this event */
 	UPROPERTY(BlueprintAssignable, Category = "Interaction")
 	FOnUseItem OnUseItem;
+
+	/** AnimMontage to play when climbing */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+		UAnimMontage* ClimbAnimation;
 
 	/** Variable for checking if the player is climbing */
 	UPROPERTY(BlueprintReadWrite)
@@ -81,6 +86,18 @@ protected:
 	*  Traces the height vector of the player for ledge grabbing.
 	*/
 	void HeightTrace();
+
+	/**
+	*  Plays the hanging animation
+	*/
+	UFUNCTION(BlueprintCallable)
+	void PlayHangAnimation();
+
+	/**
+	*  Plays the climbing animation
+	*/
+	UFUNCTION(BlueprintCallable)
+	void PlayClimbAnimation();
 
 	struct TouchData
 	{

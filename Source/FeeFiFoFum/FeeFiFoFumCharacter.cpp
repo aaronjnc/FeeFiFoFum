@@ -148,6 +148,33 @@ void AFeeFiFoFumCharacter::HeightTrace()
 
 }
 
+void AFeeFiFoFumCharacter::PlayHangAnimation()
+{
+	if (ClimbAnimation != nullptr)
+	{
+		// Get the animation object for the arms mesh
+		UAnimInstance* AnimInstance = GetMesh1P()->GetAnimInstance();
+		if (AnimInstance != nullptr)
+		{
+			AnimInstance->Montage_Play(ClimbAnimation, 0.f);
+			AnimInstance->Montage_Pause(ClimbAnimation);
+		}
+	}
+}
+
+void AFeeFiFoFumCharacter::PlayClimbAnimation()
+{
+	if (ClimbAnimation != nullptr)
+	{
+		// Get the animation object for the arms mesh
+		UAnimInstance* AnimInstance = GetMesh1P()->GetAnimInstance();
+		if (AnimInstance != nullptr)
+		{
+			AnimInstance->Montage_Play(ClimbAnimation, 1.f);
+		}
+	}
+}
+
 bool AFeeFiFoFumCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)
 {
 	if (FPlatformMisc::SupportsTouchInput() || GetDefault<UInputSettings>()->bUseMouseForTouch)
