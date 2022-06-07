@@ -37,6 +37,4 @@ public:
 private:
 
 	APatrolPoint* CurrentPoint;
-
-	float TimeSinceSpot;
 };

@@ -28,7 +28,6 @@ void UGiantPatrol::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
 }
 
 APatrolPoint* UGiantPatrol::DetermineNextPoint()
