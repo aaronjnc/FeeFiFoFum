@@ -38,6 +38,8 @@ AFeeFiFoFumCharacter::AFeeFiFoFumCharacter()
 	// Sets the player to not climbing by default
 	IsClimbing = false;
 
+	IsSprinting = false;
+
 }
 
 void AFeeFiFoFumCharacter::BeginPlay()
@@ -113,7 +115,13 @@ void AFeeFiFoFumCharacter::MoveForward(float Value)
 	if (Value != 0.0f && !IsClimbing)
 	{
 		// add movement in that direction
-		AddMovementInput(GetActorForwardVector(), Value);
+		if (IsSprinting) {
+			Value *= 1.5f;
+			AddMovementInput(GetActorForwardVector(), Value);
+		}
+		else {
+			AddMovementInput(GetActorForwardVector(),Value);
+		}
 	}
 }
 
@@ -122,7 +130,13 @@ void AFeeFiFoFumCharacter::MoveRight(float Value)
 	if (Value != 0.0f && !IsClimbing)
 	{
 		// add movement in that direction
-		AddMovementInput(GetActorRightVector(), Value);
+		if (IsSprinting) {
+			Value *= 1.5f;
+			AddMovementInput(GetActorRightVector(), Value);
+		}
+		else {
+			AddMovementInput(GetActorRightVector(), Value);
+		}
 	}
 }
 

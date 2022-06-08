@@ -49,6 +49,10 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool IsClimbing;
 
+	/** Variable for checking if the player is sprinting */
+	UPROPERTY(BlueprintReadWrite)
+	bool IsSprinting;
+
 protected:
 	
 	/** Fires a projectile. */
