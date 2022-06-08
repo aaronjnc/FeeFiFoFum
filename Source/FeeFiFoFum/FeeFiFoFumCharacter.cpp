@@ -38,6 +38,8 @@ AFeeFiFoFumCharacter::AFeeFiFoFumCharacter()
 	// Sets the player to not climbing by default
 	IsClimbing = false;
 
+	IsSprinting = false;
+
 }
 
 void AFeeFiFoFumCharacter::BeginPlay()
