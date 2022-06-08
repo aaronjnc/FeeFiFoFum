@@ -115,13 +115,7 @@ void AFeeFiFoFumCharacter::MoveForward(float Value)
 	if (Value != 0.0f && !IsClimbing)
 	{
 		// add movement in that direction
-		if (IsSprinting) {
-			Value *= 1.5f;
-			AddMovementInput(GetActorForwardVector(), Value);
-		}
-		else {
-			AddMovementInput(GetActorForwardVector(),Value);
-		}
+		AddMovementInput(GetActorForwardVector(), Value);
 	}
 }
 
@@ -130,13 +124,7 @@ void AFeeFiFoFumCharacter::MoveRight(float Value)
 	if (Value != 0.0f && !IsClimbing)
 	{
 		// add movement in that direction
-		if (IsSprinting) {
-			Value *= 1.5f;
-			AddMovementInput(GetActorRightVector(), Value);
-		}
-		else {
-			AddMovementInput(GetActorRightVector(), Value);
-		}
+		AddMovementInput(GetActorRightVector(), Value);
 	}
 }
 
