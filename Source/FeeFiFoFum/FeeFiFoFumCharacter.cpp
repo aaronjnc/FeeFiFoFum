@@ -61,7 +61,8 @@ void AFeeFiFoFumCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
-	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &AFeeFiFoFumCharacter::OnPrimaryAction);
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &AFeeFiFoFumCharacter::DrawBow);
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Released, this, &AFeeFiFoFumCharacter::OnPrimaryAction);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -79,9 +80,21 @@ void AFeeFiFoFumCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindAxis("Look Up / Down Gamepad", this, &AFeeFiFoFumCharacter::LookUpAtRate);
 }
 
+void AFeeFiFoFumCharacter::DrawBow()
+{
+	// play bow animation
+	GetWorldTimerManager().SetTimer(BowTimerHandle, this, &AFeeFiFoFumCharacter::ForwardTrace, 2.0f, false);
+}
+
 void AFeeFiFoFumCharacter::OnPrimaryAction()
 {
-	// Trigger the OnItemUsed Event
+	float timeLeft = GetWorldTimerManager().GetTimerRemaining(BowTimerHandle);
+
+	bowForceFactor = (2.0 - timeLeft) / 2.0;
+
+	if (timeLeft == -1)
+		bowForceFactor = 1.0f;
+
 	OnUseItem.Broadcast();
 }
 

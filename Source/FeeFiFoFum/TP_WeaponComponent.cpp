@@ -39,14 +39,16 @@ void UTP_WeaponComponent::Fire()
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 	
 			// Spawn the projectile at the muzzle
-			World->SpawnActor<AFeeFiFoFumProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			AFeeFiFoFumProjectile *projectile = World->SpawnActor<AFeeFiFoFumProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+
+			projectile->SetInitialSpeed(Character->bowForceFactor);
 		}
 	}
 	
 	// Try and play the sound if specified
 	if (FireSound != nullptr)
 	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation());
+		//UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation()); no bow sound yet
 	}
 	
 	// Try and play a firing animation if specified

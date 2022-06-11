@@ -57,8 +57,17 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool onLadder;
 
+	/** Handle to manage the timer */
+	FTimerHandle BowTimerHandle;
+
+	/** How hard to shoot the arrow */
+	float bowForceFactor;
+
 protected:
 	
+	/** Draws the bow. */
+	void DrawBow();
+
 	/** Fires a projectile. */
 	void OnPrimaryAction();
 
