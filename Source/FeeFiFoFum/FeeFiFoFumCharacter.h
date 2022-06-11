@@ -53,6 +53,10 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool IsSprinting;
 
+	/** Variable for checking if the player is sprinting */
+	UPROPERTY(BlueprintReadWrite)
+	bool onLadder;
+
 protected:
 	
 	/** Fires a projectile. */
