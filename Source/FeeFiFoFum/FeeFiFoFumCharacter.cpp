@@ -112,7 +112,10 @@ void AFeeFiFoFumCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const F
 
 void AFeeFiFoFumCharacter::MoveForward(float Value)
 {
-	if (Value != 0.0f && !IsClimbing)
+	if (Value != 0.0f && onLadder) {
+		AddMovementInput(FirstPersonCameraComponent->GetForwardVector(), Value);
+	}
+	else if (Value != 0.0f && !IsClimbing)
 	{
 		// add movement in that direction
 		AddMovementInput(GetActorForwardVector(), Value);
