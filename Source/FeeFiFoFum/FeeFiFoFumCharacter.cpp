@@ -35,6 +35,11 @@ AFeeFiFoFumCharacter::AFeeFiFoFumCharacter()
 	Mesh1P->SetRelativeRotation(FRotator(1.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
 
+	// Sets the player to not climbing by default
+	IsClimbing = false;
+
+	IsSprinting = false;
+
 }
 
 void AFeeFiFoFumCharacter::BeginPlay()
@@ -56,7 +61,8 @@ void AFeeFiFoFumCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
-	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &AFeeFiFoFumCharacter::OnPrimaryAction);
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &AFeeFiFoFumCharacter::DrawBow);
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Released, this, &AFeeFiFoFumCharacter::OnPrimaryAction);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -74,9 +80,21 @@ void AFeeFiFoFumCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindAxis("Look Up / Down Gamepad", this, &AFeeFiFoFumCharacter::LookUpAtRate);
 }
 
+void AFeeFiFoFumCharacter::DrawBow()
+{
+	// play bow animation
+	GetWorldTimerManager().SetTimer(BowTimerHandle, this, &AFeeFiFoFumCharacter::ForwardTrace, 2.0f, false);
+}
+
 void AFeeFiFoFumCharacter::OnPrimaryAction()
 {
-	// Trigger the OnItemUsed Event
+	float timeLeft = GetWorldTimerManager().GetTimerRemaining(BowTimerHandle);
+
+	bowForceFactor = (2.0 - timeLeft) / 2.0;
+
+	if (timeLeft == -1)
+		bowForceFactor = 1.0f;
+
 	OnUseItem.Broadcast();
 }
 
@@ -107,7 +125,10 @@ void AFeeFiFoFumCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const F
 
 void AFeeFiFoFumCharacter::MoveForward(float Value)
 {
-	if (Value != 0.0f)
+	if (Value != 0.0f && onLadder) {
+		AddMovementInput(FirstPersonCameraComponent->GetForwardVector(), Value);
+	}
+	else if (Value != 0.0f && !IsClimbing)
 	{
 		// add movement in that direction
 		AddMovementInput(GetActorForwardVector(), Value);
@@ -116,7 +137,7 @@ void AFeeFiFoFumCharacter::MoveForward(float Value)
 
 void AFeeFiFoFumCharacter::MoveRight(float Value)
 {
-	if (Value != 0.0f)
+	if (Value != 0.0f && !IsClimbing)
 	{
 		// add movement in that direction
 		AddMovementInput(GetActorRightVector(), Value);
@@ -133,6 +154,16 @@ void AFeeFiFoFumCharacter::LookUpAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
 	AddControllerPitchInput(Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds());
+}
+
+void AFeeFiFoFumCharacter::ForwardTrace()
+{
+	
+}
+
+void AFeeFiFoFumCharacter::HeightTrace()
+{
+
 }
 
 bool AFeeFiFoFumCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)

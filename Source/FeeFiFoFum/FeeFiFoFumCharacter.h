@@ -44,8 +44,30 @@ public:
 	/** Delegate to whom anyone can subscribe to receive this event */
 	UPROPERTY(BlueprintAssignable, Category = "Interaction")
 	FOnUseItem OnUseItem;
+
+	/** Variable for checking if the player is climbing */
+	UPROPERTY(BlueprintReadWrite)
+	bool IsClimbing;
+
+	/** Variable for checking if the player is sprinting */
+	UPROPERTY(BlueprintReadWrite)
+	bool IsSprinting;
+
+	/** Variable for checking if the player is sprinting */
+	UPROPERTY(BlueprintReadWrite)
+	bool onLadder;
+
+	/** Handle to manage the timer */
+	FTimerHandle BowTimerHandle;
+
+	/** How hard to shoot the arrow */
+	float bowForceFactor;
+
 protected:
 	
+	/** Draws the bow. */
+	void DrawBow();
+
 	/** Fires a projectile. */
 	void OnPrimaryAction();
 
@@ -66,6 +88,16 @@ protected:
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
+
+	/**
+	*  Traces the forward vector of the player for ledge grabbing.
+	*/
+	void ForwardTrace();
+
+	/**
+	*  Traces the height vector of the player for ledge grabbing.
+	*/
+	void HeightTrace();
 
 	struct TouchData
 	{
